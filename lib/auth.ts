@@ -31,7 +31,7 @@ export const authOptions: NextAuthOptions = {
             "playlist-read-collaborative"
         ].join(" "),
         response_type: "code",
-        redirect_uri: "http://www.djspot.me/api/auth/callback/spotify",
+        redirect_uri: "https://www.djspot.me/api/auth/callback/spotify",
         },
     },
     }),
