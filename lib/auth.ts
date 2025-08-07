@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
             "app-remote-control"
         ].join(" "),
         response_type: "code",
-        redirect_uri: "https:/www.djspot.me/api/auth/callback/spotify",
+        redirect_uri: "https://www.djspot.me/api/auth/callback/spotify",
         },
     },
     })
