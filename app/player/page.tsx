@@ -74,7 +74,7 @@ export default function PlayerPage() {
       throw new Error("Session or access token is missing.");
     }
     const analysis = await fetch(
-    `https://api.spotify.com/v1/audio-analysis/${track.id}`,
+    `https://api.spotify.com/v1/audio-features/${track.id}`,
     {
         headers: {
         Authorization: `Bearer ${session.accessToken}`,
