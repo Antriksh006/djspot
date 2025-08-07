@@ -69,8 +69,18 @@ export default function PlayerPage() {
     };
   }, [session]);
 
-  const playTrackSnippet = async (track: any) => {
-    const analysis = await fetch(`/api/analysis/${track.id}`).then(res => res.json());
+    const playTrackSnippet = async (track: any) => {
+    if (!session || !session.accessToken) {
+      throw new Error("Session or access token is missing.");
+    }
+    const analysis = await fetch(
+    `https://api.spotify.com/v1/audio-analysis/${track.id}`,
+    {
+        headers: {
+        Authorization: `Bearer ${session.accessToken}`,
+        },
+    }
+    ).then(res => res.json());
 
     const bestSection = analysis.sections.reduce((prev: any, curr: any) =>
       (curr.loudness > prev.loudness && curr.duration > 25) ? curr : prev
