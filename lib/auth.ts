@@ -22,19 +22,18 @@ export const authOptions: NextAuthOptions = {
         scope: [
             "user-read-email",
             "user-read-private",
+            "playlist-read-private",
             "user-read-playback-state",
             "user-modify-playback-state",
             "user-read-currently-playing",
             "streaming",
-            "app-remote-control",
-            "playlist-read-private",
-            "playlist-read-collaborative"
+            "app-remote-control"
         ].join(" "),
         response_type: "code",
-        redirect_uri: "https://www.djspot.me/api/auth/callback/spotify",
+        redirect_uri: "https:/www.djspot.me/api/auth/callback/spotify",
         },
     },
-    }),
+    })
   ],
   callbacks: {
     async jwt({ token, account, user }) {
