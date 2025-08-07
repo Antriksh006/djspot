@@ -14,10 +14,24 @@ declare module "next-auth" {
 export const authOptions: NextAuthOptions = {
   providers: [
     SpotifyProvider({
-      clientId: process.env.SPOTIFY_CLIENT_ID!,
-      clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
-      authorization:
-      "https://accounts.spotify.com/authorize?scope=user-read-email user-read-private playlist-read-private",
+    clientId: process.env.SPOTIFY_CLIENT_ID!,
+    clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
+    authorization: {
+        url: "https://accounts.spotify.com/authorize",
+        params: {
+        scope: [
+            "user-read-email",
+            "user-read-private",
+            "user-read-playback-state",
+            "user-modify-playback-state",
+            "streaming",
+            "playlist-read-private",
+            "playlist-read-collaborative",
+            "user-library-read",
+            "user-library-modify"
+        ].join(" "),
+        },
+    },
     }),
   ],
   callbacks: {
