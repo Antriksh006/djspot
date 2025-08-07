@@ -24,12 +24,14 @@ export const authOptions: NextAuthOptions = {
             "user-read-private",
             "user-read-playback-state",
             "user-modify-playback-state",
+            "user-read-currently-playing",
             "streaming",
+            "app-remote-control",
             "playlist-read-private",
-            "playlist-read-collaborative",
-            "user-library-read",
-            "user-library-modify"
+            "playlist-read-collaborative"
         ].join(" "),
+        response_type: "code",
+        redirect_uri: "http://www.djspot.me/api/auth/callback/spotify",
         },
     },
     }),
